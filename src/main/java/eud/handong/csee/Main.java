@@ -31,7 +31,21 @@ public class Main {
 	
 	private boolean parseOptions(Options options,String[] args)
 	{
-		
+		CommandLineParser parser = new DefaultParser();
+
+		try {
+
+			CommandLine cmd = parser.parse(options, args);
+			 
+			input=cmd.getOptionValue("i");
+			output=cmd.getOptionValue("o");
+			help = cmd.hasOption("h");
+		} catch (Exception e) {
+			printHelp(options);
+			return false;
+		}
+
+		return true;
 	}
 	
 	private Options createOprions()
