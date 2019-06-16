@@ -1,4 +1,4 @@
-package eud.handong.csee;
+package edu.handong.csee;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -25,7 +25,16 @@ public class Main {
 		
 		if(parseOptions(options,args))
 		{
+			String[] arg= {input,output};
 			
+			if(help)
+			{
+				printHelp(options);
+				return;
+			}
+			
+			MergeExcelFile mergeExcelFile =new MergeExcelFile();
+			mergeExcelFile.run(arg);
 		}
 	}
 	
@@ -48,23 +57,26 @@ public class Main {
 		return true;
 	}
 	
-	private Options createOprions()
+	private Options createOption()
 	{
 		Options options=new Options();
 		
 		options.addOption(Option.builder("i").longOpt("input")
 				           .desc("this is input path and reqired")
 				           .hasArg()
-				           .argname("input path")
-				           .required()
+				           .argName("input path")
 				           .build());
 		
 		options.addOption(Option.builder("o").longOpt("output")
 				          .desc("this is output path and required")
 				          .hasArg()
-				          .argname("out path")
-				          .required()
+				          .argName("out path")
 				          .build());
+		options.addOption(Option.builder("h").longOpt("help")
+		                  .desc("help")
+		                  .build());
+		
+		return options;
 	}
 	
 	private void printHelp(Options options)
