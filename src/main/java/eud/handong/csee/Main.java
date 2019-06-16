@@ -11,7 +11,7 @@ public class Main {
 	
 	String input;
 	String output;
-	boolean help;
+	boolean help=false;
 	
 	public static void main(String[] args)
 	{
@@ -38,12 +38,19 @@ public class Main {
 	{
 		Options options=new Options();
 		
-		options.addOption((Option.builder("i").longOpt("input")
-				           .desc("this is input name and reqired")
+		options.addOption(Option.builder("i").longOpt("input")
+				           .desc("this is input path and reqired")
 				           .hasArg()
 				           .argname("input path")
 				           .required()
 				           .build());
+		
+		options.addOption(Option.builder("o").longOpt("output")
+				          .desc("this is output path and required")
+				          .hasArg()
+				          .argname("out path")
+				          .required()
+				          .build());
 	}
 	
 	private void printHelp(Options options)
