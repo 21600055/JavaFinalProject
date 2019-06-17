@@ -26,7 +26,7 @@ public class Main {
 		Options options=createOption();
 		
 		if(parseOptions(options,args))
-		{
+		{ 
 			String[] arg= {input,output};
 			
 			if(help)
