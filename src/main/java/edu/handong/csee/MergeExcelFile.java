@@ -14,5 +14,8 @@ public class MergeExcelFile {
 			System.exit(0);
 		}
 		
+		String input=args[0];
+		String output=args[1];
+		
 	}
 }
