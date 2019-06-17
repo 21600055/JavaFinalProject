@@ -17,6 +17,8 @@ public class Main {
 	{
 		Main main=new Main();
 		main.run(args);
+		Thread thread=new MergeExcelFile();
+		thread.start();
 	}
 	
 	public void run(String[] args)

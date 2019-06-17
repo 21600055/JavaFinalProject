@@ -17,7 +17,6 @@ public class OutputWrite {
 			System.exit(0);
 		}
 		int i;
-
 		for(i=0;i<mergefile.size();i++)
 		{
 			outputStream.println(mergefile.get(i));

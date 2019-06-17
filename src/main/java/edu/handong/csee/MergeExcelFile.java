@@ -6,7 +6,7 @@ import edu.handong.csee.utils.ZipReader;
 import edu.handong.csee.utils.NotEnoughArgumentException;
 import edu.handong.csee.utils.OutputWrite;
 
-public class MergeExcelFile {
+public class MergeExcelFile extends Thread{
 	
 	public void run(String[] args)
 	{

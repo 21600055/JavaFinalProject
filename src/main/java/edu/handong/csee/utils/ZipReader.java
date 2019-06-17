@@ -1,7 +1,9 @@
 package edu.handong.csee.utils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -22,15 +24,24 @@ public class ZipReader {
 		        InputStream stream = zipFile.getInputStream(entry);
 		    
 		        ExcelReader myReader = new ExcelReader();
-		        
-		        mergeFile.addAll(myReader.getData(stream));
-		        /*for(String value:myReader.getData(stream)) {
-		        	System.out.println(value);
-		        }*/
+		        String stdId=path.substring(0,4);
+		        mergeFile.addAll(myReader.getData(stream,stdId));
 		    }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(NullPointerException e) {
+			
+			PrintWriter outputStream = null;
+			
+			try {
+				outputStream = new PrintWriter("error.csv");
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			outputStream.println(path);
+			outputStream.close();
 		}
 		return mergeFile;
 	}
