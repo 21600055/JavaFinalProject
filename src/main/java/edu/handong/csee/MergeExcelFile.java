@@ -1,6 +1,10 @@
 package edu.handong.csee;
 
-import edu.handong.csee.utils.*;
+import java.util.ArrayList;
+
+import edu.handong.csee.utils.ZipReader;
+import edu.handong.csee.utils.NotEnoughArgumentException;
+import edu.handong.csee.utils.OutputWrite;
 
 public class MergeExcelFile {
 	
@@ -17,5 +21,7 @@ public class MergeExcelFile {
 		String input=args[0];
 		String output=args[1];
 		
+		ArrayList<String> mergefile=ZipReader.readFileInZip(input);
+		OutputWrite.writeAFile(mergefile,output);
 	}
 }
