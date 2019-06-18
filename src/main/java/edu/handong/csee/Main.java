@@ -64,13 +64,13 @@ public class Main {
 		Options options=new Options();
 		
 		options.addOption(Option.builder("i").longOpt("input")
-				           .desc("this is input path and reqired")
+				           .desc("this is input path")
 				           .hasArg()
 				           .argName("input path")
 				           .build());
 		
 		options.addOption(Option.builder("o").longOpt("output")
-				          .desc("this is output path and required")
+				          .desc("this is output path")
 				          .hasArg()
 				          .argName("out path")
 				          .build());
